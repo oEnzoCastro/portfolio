@@ -21,21 +21,24 @@ export default function Home() {
       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       name: "React",
       desc: "Frontend Frameword",
-    }
+    },
   ];
 
   return (
-    <div className="flex gap-5 justify-center mt-5 flex-wrap">
-      {technologies.map((technologie) => {
-        return (
-          <Technologies
-            key={technologie.name}
-            img={technologie.img}
-            name={technologie.name}
-            desc={technologie.desc}
-          />
-        );
-      })}
+    <div className="flex flex-col items-center">
+      <p>Enzo Castro</p>
+      <div className="flex gap-5 justify-center mt-5 flex-wrap">
+        {technologies.map((technologie) => {
+          return (
+            <Technologies
+              key={technologie.name}
+              img={technologie.img}
+              name={technologie.name}
+              desc={technologie.desc}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
