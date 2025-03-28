@@ -10,6 +10,16 @@
       "desc": "Backend Language"
     },
     {
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
+      "name": "C",
+      "desc": "Backend Language"
+    },
+    {
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png",
+      "name": "C++",
+      "desc": "Backend Language"
+    },
+    {
       "img": "https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-2945099.png?f=webp&w=256",
       "name": "Phyton",
       "desc": "Backend Language"
