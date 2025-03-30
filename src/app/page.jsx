@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* Header Start */}
 
-      <div className="h-dvh w-full bg-neutral-800/50 flex flex-col items-center">
+      <div className="h-screen w-full bg-neutral-800/50 flex flex-col items-center">
         <div className="text-6xl font-medium text-center p-10 duration-500">Enzo Castro</div>
         <div className="w-[70%] h-full flex flex-col items-center">
           <HelloDropdown></HelloDropdown>
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="text-4xl text-center font-medium p-5">Current Technologies</div>
       <div className="md:text-xl pl-20 pr-20 text-neutral-300 duration-1000">I am in a constant process of learning about modern solutions. These are some of my main technologies.</div>
 
-      <div className="flex gap-5 justify-center mt-5 flex-wrap">
+      <div className="flex gap-5 justify-center flex-wrap mt-5 p-10">
         {technologies.map((technologie) => {
           return (
             <Technologies key={technologie.name} technologie={technologie} />
