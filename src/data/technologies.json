@@ -27,6 +27,11 @@
     {
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       "name": "React",
-      "desc": "Frontend Frameword"
+      "desc": "Frontend Framework"
+    },
+    {
+      "img": "https://static-00.iconduck.com/assets.00/nextjs-icon-1024x1024-5et230l7.png",
+      "name": "NextJS",
+      "desc": "Frontend & Backend Framework"
     }
 ]

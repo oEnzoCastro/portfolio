@@ -17,8 +17,9 @@ export default function Home() {
           <HelloDropdown></HelloDropdown>
         </div>
         {/* Button */}
-        <div>
-          <button className="bg-neutral-200 text-neutral-900 rounded-xl">My Projects</button>
+        <div className="flex gap-2 m-15">
+          <button className="bg-neutral-900 text-neutral-300 rounded-xl p-2 border border-neutral-300">My Projects</button>
+          <button className="bg-neutral-800 text-neutral-100 rounded-xl p-2 border border-neutral-100">About Me</button>
         </div>
       </div>
 
