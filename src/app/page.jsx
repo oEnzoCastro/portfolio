@@ -12,9 +12,13 @@ export default function Home() {
       {/* Header Start */}
 
       <div className="h-screen w-full bg-neutral-800/50 flex flex-col items-center">
-        <div className="text-6xl font-medium text-center p-10 duration-500">Enzo Castro</div>
-        <div className="w-[70%] h-full flex flex-col items-center">
+        <div className="text-5xl md:text-6xl font-medium text-center p-10 duration-500">Enzo Castro</div>
+        <div className="w-[80%] flex flex-col items-center">
           <HelloDropdown></HelloDropdown>
+        </div>
+        {/* Button */}
+        <div>
+          <button className="bg-neutral-200 text-neutral-900 rounded-xl">My Projects</button>
         </div>
       </div>
 
@@ -22,7 +26,7 @@ export default function Home() {
       {/* Technologies Start */}
 
       <div className="text-4xl text-center font-medium p-5">Current Technologies</div>
-      <div className="md:text-xl pl-20 pr-20 text-neutral-300 duration-1000">I am in a constant process of learning about modern solutions. These are some of my main technologies.</div>
+      <div className="md:text-xl pl-20 pr-20 text-neutral-300 duration-1000">I'm in a constant process of learning about modern solutions. These are some of my main technologies.</div>
 
       <div className="flex gap-5 justify-center flex-wrap mt-5 p-10">
         {technologies.map((technologie) => {
