@@ -3,6 +3,13 @@
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Triangle, Program, Mesh } from 'ogl';
 
+// Extend the HTMLElement interface to include the custom property for the IntersectionObserver
+declare global {
+  interface HTMLElement {
+    __prismIO?: IntersectionObserver;
+  }
+}
+
 type PrismProps = {
   height?: number;
   baseWidth?: number;
@@ -410,7 +417,7 @@ const Prism: React.FC<PrismProps> = ({
       });
       io.observe(container);
       startRAF();
-      (container as any).__prismIO = io;
+      container.__prismIO = io;
     } else {
       startRAF();
     }
@@ -424,9 +431,10 @@ const Prism: React.FC<PrismProps> = ({
         window.removeEventListener('blur', onBlur);
       }
       if (suspendWhenOffscreen) {
-        const io = (container as any).__prismIO as IntersectionObserver | undefined;
-        if (io) io.disconnect();
-        delete (container as any).__prismIO;
+        if (container.__prismIO) {
+          container.__prismIO.disconnect();
+          delete container.__prismIO;
+        }
       }
       if (gl.canvas.parentElement === container) container.removeChild(gl.canvas);
     };
