@@ -15,7 +15,7 @@ import PixelBlast from "./Backgrounds/PixelBlast";
 export default function Theme() {
   return (
     <Tabs defaultValue="tab-1" className="items-center">
-      <TabsList className="z-1">
+      <TabsList className="z-0 fixed top-5">
         <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -73,24 +73,26 @@ export default function Theme() {
       </TabsList>
       <TabsContent value="tab-1">
         <div
-          className="absolute w-full left-0 h-dvh top-0 bg-black"
+          className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black"
           // style={{ width: "100dvw", height: "100dvh", position: "absolute" }}
         >
           <Prism
             animationType="3drotate"
-            timeScale={0.2}
+            suspendWhenOffscreen={true}
+            timeScale={0.3}
             height={3}
             baseWidth={5}
-            scale={3}
+            scale={2}
             hueShift={0}
             colorFrequency={0.5}
             noise={0}
+            bloom={0}
             glow={1}
           />
         </div>
       </TabsContent>
       <TabsContent value="tab-2">
-        <div className="absolute w-full left-0 h-[100dvh] top-0 bg-black">
+        <div className="absolute w-full z-[-1] left-0 h-[100dvh] top-0 bg-black">
           <FaultyTerminal
             scale={3}
             digitSize={3}
@@ -110,7 +112,7 @@ export default function Theme() {
         </div>
       </TabsContent>
       <TabsContent value="tab-3">
-        <div className="absolute w-full left-0 h-dvh top-0 bg-black">
+        <div className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black">
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
             particleCount={200}
@@ -124,7 +126,7 @@ export default function Theme() {
         </div>
       </TabsContent>
       <TabsContent value="tab-4">
-        <div className="absolute w-full left-0 h-dvh top-0 bg-black">
+        <div className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black">
           <PixelBlast
             variant="square"
             pixelSize={10}
@@ -134,7 +136,6 @@ export default function Theme() {
             pixelSizeJitter={0.5}
             edgeFade={0.1}
             speed={0.02}
-            
           />
         </div>
       </TabsContent>
