@@ -1,4 +1,4 @@
-import { BoxIcon, HouseIcon, PanelsTopLeftIcon } from "lucide-react";
+import { Binary, Drone, Pyramid, RocketIcon } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -20,8 +20,8 @@ export default function Theme() {
           <Tooltip>
             <TooltipTrigger asChild>
               <span>
-                <TabsTrigger value="tab-1" className="py-3">
-                  <HouseIcon size={16} aria-hidden="true" />
+                <TabsTrigger value="tab-1" className="py-3 cursor-pointer">
+                  <Pyramid size={16} aria-hidden="true" />
                 </TabsTrigger>
               </span>
             </TooltipTrigger>
@@ -34,9 +34,9 @@ export default function Theme() {
           <Tooltip>
             <TooltipTrigger asChild>
               <span>
-                <TabsTrigger value="tab-2" className="group py-3">
+                <TabsTrigger value="tab-2" className="group py-3 cursor-pointer">
                   <span className="relative">
-                    <PanelsTopLeftIcon size={16} aria-hidden="true" />
+                    <Drone size={16} aria-hidden="true" />
                   </span>
                 </TabsTrigger>
               </span>
@@ -50,8 +50,8 @@ export default function Theme() {
           <Tooltip>
             <TooltipTrigger asChild>
               <span>
-                <TabsTrigger value="tab-3" className="py-3">
-                  <BoxIcon size={16} aria-hidden="true" />
+                <TabsTrigger value="tab-3" className="py-3 cursor-pointer">
+                  <RocketIcon size={16} aria-hidden="true" />
                 </TabsTrigger>
               </span>
             </TooltipTrigger>
@@ -62,8 +62,8 @@ export default function Theme() {
           <Tooltip>
             <TooltipTrigger asChild>
               <span>
-                <TabsTrigger value="tab-4" className="py-3">
-                  <BoxIcon size={16} aria-hidden="true" />
+                <TabsTrigger value="tab-4" className="py-3 cursor-pointer">
+                  <Binary size={16} aria-hidden="true" />
                 </TabsTrigger>
               </span>
             </TooltipTrigger>
@@ -73,7 +73,7 @@ export default function Theme() {
       </TabsList>
       <TabsContent value="tab-1">
         <div
-          className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black"
+          className="fixed w-full z-[-1] left-0 h-dvh top-0 bg-black"
           // style={{ width: "100dvw", height: "100dvh", position: "absolute" }}
         >
           <Prism
@@ -92,7 +92,7 @@ export default function Theme() {
         </div>
       </TabsContent>
       <TabsContent value="tab-2">
-        <div className="absolute w-full z-[-1] left-0 h-[100dvh] top-0 bg-black">
+        <div className="fixed w-full z-[-1] left-0 h-[100dvh] top-0 bg-black">
           <FaultyTerminal
             scale={3}
             digitSize={3}
@@ -112,7 +112,7 @@ export default function Theme() {
         </div>
       </TabsContent>
       <TabsContent value="tab-3">
-        <div className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black">
+        <div className="fixed w-full z-[-1] left-0 h-dvh top-0 bg-black">
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
             particleCount={200}
@@ -126,7 +126,7 @@ export default function Theme() {
         </div>
       </TabsContent>
       <TabsContent value="tab-4">
-        <div className="absolute w-full z-[-1] left-0 h-dvh top-0 bg-black">
+        <div className="fixed w-full z-[-1] left-0 h-dvh top-0 bg-black">
           <PixelBlast
             variant="square"
             pixelSize={10}
