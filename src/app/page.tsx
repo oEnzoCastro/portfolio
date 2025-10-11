@@ -1,22 +1,33 @@
+import TextPressure from "./components/TextPressure";
+import Liquid from "./themes/Liquid";
+
 export default function Home() {
   return (
-    <div className="text-white flex flex-col justify-center items-center">
-      <div className="flex flex-col h-dvh justify-center items-center">
-        <h1 className="font-bold text-[8dvw] md:text-[5dvw] text-nowrap">
-          Enzo Castro Figueredo
-        </h1>
-        <div className="flex justify-between font-medium bg-black/25 text-center rounded">
-          <h2 className="text-[2dvw] md:text-[1dvw]">
-            Cientista da Computação
-          </h2>
-          <h2 className="text-[2dvw] md:text-[1dvw]">
-            Desenvolvedor FullStack
-          </h2>
-          <h2 className="text-[2dvw] md:text-[1dvw]">Team Leader</h2>
-          <h2 className="text-[2dvw] md:text-[1dvw]">Desenvolvedor Mobile</h2>
-        </div>
+    <div style={{ position: "relative", width: "100%", height: "100dvh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+        }}
+      >
+        <Liquid />
       </div>
-      <div className="h-dvh w-full backdrop-blur-md bg-black/25 border-t-2"></div>
+      <div className="w-1/2">
+        <TextPressure
+          text="Enzo Castro"
+          flex={true}
+          alpha={false}
+          stroke={false}
+          width={true}
+          weight={true}
+          italic={true}
+          textColor="#ffffff"
+          strokeColor="#ff0000"
+          minFontSize={12}
+        />
+      </div>
     </div>
   );
 }
