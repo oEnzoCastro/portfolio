@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# enzocastro.dev
 
-## Getting Started
+Personal portfolio of **Enzo Castro**, fullstack developer across web, mobile
+and backend.
 
-First, run the development server:
+> Building fast, without cutting corners.
+
+The site is designed like a record: projects are tracks, the brand mark is a
+vinyl sleeve, and opening a case slides the disc out of its sleeve. The
+metaphor stays in the details; the information never hides behind it.
+
+**Status:** v1 in progress, target launch 30 Nov 2026.
+
+## How this project is built
+
+This repository follows the same workflow I use at work:
+
+1. **Spec first.** Every feature starts as a spec with acceptance criteria in
+   [`docs/specs`](docs/specs/README.md). The spec is the backlog.
+2. **Tests from the criteria.** Unit tests are written from the acceptance
+   criteria before the implementation (red, green, refactor).
+3. **Gates before review.** A pre-commit hook lints staged files and type
+   checks the project; a pre-push hook runs the tests.
+4. **CI as the last gate.** Every pull request and every push to `main` runs
+   lint, type check, tests and build.
+
+Commits and pull requests reference the spec item they implement, for example
+`FND-06`.
+
+## Tech stack
+
+| Area | Choice | Why |
+| --- | --- | --- |
+| Framework | Next.js (App Router), TypeScript strict | Static pages, fast by default |
+| Styling | CSS Modules + CSS custom properties | Plain, readable CSS; tokens defined once |
+| Languages | English and Portuguese, built without an i18n library | Two locales, small surface, fully explainable |
+| Content | MDX for case studies | Long text lives outside the code |
+| Tests | Vitest | Fast unit tests next to the code |
+| Quality | ESLint, Husky, lint-staged, GitHub Actions | Problems caught before they reach `main` |
+| Hosting | Vercel | Preview URL for every pull request |
+
+## Getting started
+
+Requirements: Node.js 24 and npm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci          # install exactly what the lockfile says
+npm run dev     # start the dev server on http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript, no output |
+| `npm test` | Unit tests, single run |
+| `npm run test:watch` | Unit tests in watch mode |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Git hooks are installed automatically by `npm ci` / `npm install`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+docs/specs/     the v1 spec, one file per area
+src/app/        routes (one segment per locale)
+src/lib/        shared logic and its tests
+public/         static files
+.github/        CI workflow
+.husky/         git hooks
+```
 
-To learn more about Next.js, take a look at the following resources:
+The structure grows with the spec; folders appear when the first feature needs
+them.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **v1:** home, work (three case studies), about, experience, contact, light
+  and dark themes, English and Portuguese.
+- **v2:** end-to-end tests with Playwright, automated accessibility checks,
+  recommendations, an open-source version of one of the case studies.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Code: [MIT](LICENSE). Text, case studies and the brand mark: © Enzo Castro,
+all rights reserved.
