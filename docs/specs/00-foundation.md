@@ -13,7 +13,7 @@ that quality does not depend on remembering.
 - [ ] Next.js (App Router) with TypeScript in strict mode and CSS Modules.
 - [ ] `npm run dev`, `build`, `lint`, `typecheck` and `test` scripts exist and pass on an empty project.
 - [ ] Vitest + Testing Library for unit tests. End-to-end tests (Playwright) are planned for v2, see QA-04.
-- [ ] A pre-commit hook runs lint and type check on staged files; a pre-push hook runs unit tests.
+- [ ] A pre-commit hook lints the staged files and type checks the whole project; a pre-push hook runs unit tests.
 - [ ] CI (GitHub Actions) runs lint, type check, unit tests and build on every pull request and on every push to `main`.
 - [ ] The README explains what the project is, how to run it and links to this spec.
 
