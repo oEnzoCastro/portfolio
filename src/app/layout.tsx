@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
 import "@/styles/tokens.css";
 import "./globals.css";
+import { themeScript } from "@/lib/theme";
 
 const display = Bodoni_Moda({
   variable: "--font-display",
@@ -30,7 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );
