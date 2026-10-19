@@ -74,6 +74,22 @@ public/         static files
 The structure grows with the spec; folders appear when the first feature needs
 them.
 
+## Conventions
+
+- **Components own their styles.** Each component lives in its own folder
+  with its CSS Module (`src/components/Hero/Hero.tsx` + `Hero.module.css`).
+  Pages compose named components (`<Hero>`, `<Header>`) instead of passing
+  class names to raw elements.
+- **Name what it is, not how it is placed.** A component exists when it is a
+  real piece of the interface. Layout-only wrappers (`<Box>`, `<Flex>`) stay
+  as CSS.
+- **An optional `className` on every component**, so the caller can adjust
+  position or spacing without changing the component.
+- **Tokens only.** Colours, spacing and type sizes come from
+  `src/styles/tokens.css`; a test fails on hex colours in CSS Modules.
+- **No CSS-in-JS.** Styles are static CSS Modules, so components can stay
+  server components and ship no JavaScript.
+
 ## Roadmap
 
 - **v1:** home, work (three case studies), about, experience, contact, light

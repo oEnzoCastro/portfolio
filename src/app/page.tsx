@@ -1,14 +1,11 @@
+import { Logo } from "@/components/Logo/Logo";
+import styles from "./page.module.css";
+
 export default function Home() {
   return (
-    <main>
-      <h1
-        style={{
-          fontFamily: "var(--font-display)",
-          fontSize: "var(--text-display)",
-        }}
-      >
-        Enzo Castro
-      </h1>
+    <main className={styles.hero}>
+      <Logo className={styles.logo} />
+      <h1 className={styles.name}>Enzo Castro</h1>
     </main>
   );
 }
