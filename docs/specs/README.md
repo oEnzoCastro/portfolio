@@ -47,8 +47,8 @@ As <who>, I want <what>, so that <why>.
 
 ## Ground rules for content
 
-- The album metaphor never hides information. Real titles are large; metaphor
-  labels (`TRACK 01 · 6 MIN READ`) are small.
+- Music lives in the brand only (the sleeve-and-disc mark and its animation).
+  Copy uses plain portfolio language: work, case study, about, experience.
 - Client names stay anonymous ("a major US resort", "a US restaurant chain")
   until cleared.
 - No mention of relocation, exchange programme or job search until

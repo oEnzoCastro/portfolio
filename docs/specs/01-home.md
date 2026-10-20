@@ -23,11 +23,18 @@ As an interviewer, I want to go straight to what I came for.
 - [ ] "Download CV" downloads the PDF in the current locale's language when available, otherwise the English one.
 - [ ] Each action is reachable by keyboard in reading order.
 
-### HOME-03 — Featured tracks
+### HOME-03 — What I do
 Priority: v1
-As an interviewer, I want a preview of the work without leaving the page.
+As an interviewer, I want to see what Enzo offers before reading any case.
 
-- [ ] The home page lists the published cases in order (Track 01, 02, 03).
-- [ ] Each item shows the real title large and the label `TRACK 0N · N MIN READ` small.
-- [ ] The reading time is calculated from the case text, not typed by hand.
-- [ ] Each item links to its case page.
+- [ ] Below the intro, three short blocks: Mobile, Web, Backend, each with one sentence of what he delivers.
+- [ ] No block is longer than one line at desktop width.
+
+### HOME-04 — Selected work
+Priority: v1
+As an interviewer, I want to see results at a glance, not read a list.
+
+- [ ] Shows exactly the cases marked `featured`, at most three, as cards in a grid (one column on phones).
+- [ ] Each card has a highlight on top, then a short title, an arrow and up to three stack tags. No summary and no reading time on the card.
+- [ ] The whole card is one link; on hover and keyboard focus the border and highlight background change and the arrow moves (no movement with reduced motion).
+- [ ] A "See all work" link leads to the Work page.

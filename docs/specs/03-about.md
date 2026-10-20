@@ -23,6 +23,6 @@ As an interviewer, I want to know how Enzo works before I ask.
   - Ask for the feedback that hurts — asking every manager for negative feedback.
 - [ ] Each example links to the related case when there is one.
 
-### ABOUT-03 — Hidden track
+### ABOUT-03 — Hidden section
 Priority: later
 - [ ] A hidden section after the end of the page tells the story behind the nickname "Russo". Decision on whether to ship it is still open.
