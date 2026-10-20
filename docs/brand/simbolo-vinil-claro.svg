@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 120 80" width="240" height="160" role="img" aria-label="Enzo Castro">
+<defs>
+<mask id="sleeve"><rect x="-40" y="-40" width="80" height="80" fill="white"/><circle cx="40" cy="0" r="39" fill="black"/><rect x="-20" y="-23" width="62" height="14" fill="black"/><rect x="-20" y="9" width="62" height="14" fill="black"/></mask>
+<mask id="disc"><rect x="0" y="-40" width="80" height="80" fill="white"/><circle cx="40" cy="0" r="1.8" fill="black"/></mask>
+</defs>
+<rect x="-40" y="-40" width="80" height="80" fill="#EDEBE6" mask="url(#sleeve)"/>
+<circle cx="40" cy="0" r="39" fill="none" stroke="#EDEBE6" stroke-width="2"/>
+<g mask="url(#disc)"><circle cx="40" cy="0" r="26" fill="#C8102E"/><circle cx="40" cy="0" r="22.5" fill="none" stroke="#8E0B20" stroke-width="0.8"/><circle cx="40" cy="0" r="19" fill="none" stroke="#8E0B20" stroke-width="0.8"/><circle cx="40" cy="0" r="15.5" fill="none" stroke="#8E0B20" stroke-width="0.8"/><circle cx="40" cy="0" r="9" fill="#8E0B20"/></g>
+</svg>

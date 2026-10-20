@@ -1,11 +1,13 @@
 :root {
   color-scheme: light dark;
-  --color-bg: light-dark(#f4f2ec, #111110);
-  --color-text: light-dark(#1a1a18, #edebe6);
-  --color-text-muted: light-dark(#6b6963, #8a8882);
-  --color-accent: light-dark(#e2622b, #e2622b);
-  --color-accent-text: light-dark(#b5461a, #e2622b);
+  --color-bg: light-dark(#f8f6f1, #111110);
+  --color-text: light-dark(#0a0a0a, #edebe6);
+  --color-text-muted: light-dark(#3f3f3d, #8a8882);
+  --color-accent: light-dark(#c8102e, #c8102e);
+  --color-accent-text: light-dark(#b30e2a, #f04a5e);
+  --color-accent-deep: light-dark(#8e0b20, #8e0b20);
   --color-border: color-mix(in srgb, var(--color-text) 15%, transparent);
+  --color-border-strong: light-dark(#0a0a0a, #32322f);
   --color-focus: var(--color-accent-text);
 
   --space-1: 0.25rem;
