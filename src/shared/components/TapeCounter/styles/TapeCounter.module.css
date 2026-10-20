@@ -1,0 +1,54 @@
+.window {
+  --cell: 1.75rem;
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  background: var(--color-counter-bg);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: var(--cell);
+}
+
+.wheel {
+  width: 1.25rem;
+  height: var(--cell);
+  overflow: hidden;
+  background: var(--color-counter-cell);
+  color: var(--color-counter-text);
+  text-align: center;
+  mask-image: linear-gradient(transparent, black 26%, black 74%, transparent);
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--cell) * var(--steps, 0) * -1));
+}
+
+.strip[data-rolling] {
+  animation: roll calc(1s + var(--index) * 200ms)
+    cubic-bezier(0.15, 0.75, 0.25, 1.05) calc(var(--index) * 80ms) both;
+}
+
+.cell {
+  height: var(--cell);
+}
+
+.cell[data-digit] {
+  color: var(--color-counter-muted);
+}
+
+@keyframes roll {
+  from {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip[data-rolling] {
+    animation: none;
+  }
+}

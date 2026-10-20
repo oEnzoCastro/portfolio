@@ -72,6 +72,8 @@ As a visitor, I want to read the site in English or Portuguese.
 - [ ] A unit test fails if a key exists in one dictionary but not in the other.
 - [ ] Long content (cases) lives in MDX files per locale.
 - [ ] The language switch keeps me on the same page in the other language.
+- [ ] The switch looks like a mechanical tape counter: two drum wheels in a dark window show "EN" or "PT". On change, each wheel rolls through two rounds of digits before landing on the new locale; the second wheel starts and stops slightly later. With reduced motion, the letters change without rolling.
+- [ ] Underneath, the switch is a link to the same page in the other locale (`/en/...` ↔ `/pt/...`), with an accessible name in the target language ("Mudar para português" / "Switch to English").
 - [ ] `<html lang>` matches the current locale.
 - [ ] Implemented without an i18n library (decision: two locales, small surface, fully explainable).
 
