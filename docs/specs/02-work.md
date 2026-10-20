@@ -30,8 +30,10 @@ Priority: v1
 As an interviewer, I want each case to be easy to scan and to read in full.
 
 - [ ] `/[locale]/work/[slug]` renders the case with the title as `h1` and the sections as `h2`.
-- [ ] A summary block at the top shows role, period, stack and the result in one line.
-- [ ] Links back to all work and to the next case study sit at the end of the page.
+- [ ] The top shows the case highlight large (e.g. "−60%") next to the label and the title.
+- [ ] Below, two columns: a side column with role, period and stack, then an "On this page" list linking to each `h2`, marking the section in view; and the article, at most about 70 characters per line. On phones the side column goes above the article and the "On this page" list is hidden.
+- [ ] A "← All work" link sits above the title.
+- [ ] The page ends with a full-width link to the next case study (label, title, arrow).
 - [ ] Given a slug that does not exist, then the 404 page is shown.
 
 ### WORK-04 — Disc animation

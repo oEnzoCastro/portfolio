@@ -15,6 +15,7 @@ that quality does not depend on remembering.
 - [ ] Vitest + Testing Library for unit tests. End-to-end tests (Playwright) are planned for v2, see QA-04.
 - [ ] A pre-commit hook lints the staged files and type checks the whole project; a pre-push hook runs unit tests.
 - [ ] CI (GitHub Actions) runs lint, type check, unit tests and build on every pull request and on every push to `main`.
+- [ ] `typecheck` generates the route types first (`next typegen`), so it passes on a fresh clone without a `.next/` folder.
 - [ ] The README explains what the project is, how to run it and links to this spec.
 
 ### FND-02 — Design tokens
@@ -23,8 +24,10 @@ As the developer, I want colours and spacing defined once, so that both themes
 stay consistent.
 
 - [ ] Colours exist only as CSS custom properties on `:root`; no hex values inside component styles.
-- [ ] Light theme: background `#F4F2EC`, text `#1A1A18`. Dark theme: background `#111110`, text `#EDEBE6`. Accent `#E2622B` in both.
-- [ ] Muted text has at least 4.5:1 contrast against the background in both themes.
+- [ ] Light theme: background `#F8F6F1`, text `#0A0A0A`, muted `#3F3F3D`. Dark theme: background `#111110`, text `#EDEBE6`, muted `#8A8882`.
+- [ ] Accent is "vinyl red": `#C8102E` for the mark and graphics, `#8E0B20` (deep) for the vinyl grooves. Accent text: `#B30E2A` on light, `#F04A5E` on dark.
+- [ ] Two border levels: components (cards, chips, boxes) use a strong border (`#0A0A0A` light, same as the subtle one in dark); dividers (header, footer, between sections, list rows) use a subtle border (text at 15%).
+- [ ] Muted and accent text have at least 4.5:1 contrast against the background in both themes (enforced by `tokens.test.ts`).
 - [ ] Spacing and type sizes come from a small named scale (tokens), not one-off values.
 
 ### FND-03 — Fonts
@@ -44,7 +47,8 @@ As a visitor, I want to recognise the brand at any size.
 - [ ] A `Logo` component renders the vinyl-sleeve mark as inline SVG using `currentColor`, so it follows the theme.
 - [ ] Geometry matches the approved file: sleeve 80 × 80, cut-out radius 39, disc 26, groove 12, rim 2, E cuts 14 thick, 16 apart, starting at −20.
 - [ ] The cut-out is a real hole (mask), so the mark works on any background.
-- [ ] A variant prop renders the orange centre (`accent`) for large placements.
+- [ ] A `variant` prop: `default` (one colour), `accent` (red disc, for medium placements) and `vinyl` (red disc with grooves, deep-red label and a punched centre hole, only from about 120 px wide, since the grooves blur when smaller).
+- [ ] Brand files live in `docs/brand/` (symbol in dark, light, red and vinyl versions, plus the signature).
 - [ ] The mark has an accessible name ("Enzo Castro") when used as a link, and is hidden from screen readers when decorative.
 - [ ] `favicon.svg` switches colour with the system theme.
 
