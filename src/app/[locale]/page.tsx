@@ -1,5 +1,3 @@
-import { Logo } from "@/shared/components/Logo/Logo";
-import { ThemeToggle } from "@/shared/components/Header/components/ThemeToggle/ThemeToggle";
 import styles from "./page.module.css";
 import { Header } from "@/shared/components/Header/Header";
 

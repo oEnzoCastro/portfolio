@@ -10,5 +10,12 @@
     "about": "Sobre",
     "experience": "Experiência",
     "contact": "Contato"
+  },
+  "theme": {
+    "toLight": "Mudar para o tema claro",
+    "toDark": "Mudar para o tema escuro",
+    "toggle": "Mudar o tema",
+    "light": "Claro",
+    "dark": "Escuro"
   }
 }

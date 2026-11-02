@@ -10,5 +10,12 @@
     "about": "About",
     "experience": "Experience",
     "contact": "Contact"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme",
+    "toggle": "Switch theme",
+    "light": "Light",
+    "dark": "Dark"
   }
 }

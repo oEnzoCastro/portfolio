@@ -3,6 +3,7 @@ import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ThemeToggle } from "@/shared/components/Header/components/ThemeToggle/ThemeToggle";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
+import en from "@/i18n/messages/en.json";
 
 function mockSystemTheme(dark: boolean) {
   // jsdom has no matchMedia, so the test provides one.
@@ -27,14 +28,14 @@ describe("ThemeToggle", () => {
 
   it("starts from the system theme", () => {
     mockSystemTheme(true);
-    render(<ThemeToggle />);
+    render(<ThemeToggle labels={en.theme} />);
     expect(
       screen.getByRole("button", { name: "Switch to light theme" }),
     ).toBeTruthy();
   });
 
   it("switches to dark, saves the choice and updates its label", async () => {
-    render(<ThemeToggle />);
+    render(<ThemeToggle labels={en.theme} />);
 
     fireEvent.click(
       screen.getByRole("button", { name: "Switch to dark theme" }),
@@ -48,7 +49,7 @@ describe("ThemeToggle", () => {
   });
 
   it("switches back to light on a second click", async () => {
-    render(<ThemeToggle />);
+    render(<ThemeToggle labels={en.theme} />);
 
     fireEvent.click(
       screen.getByRole("button", { name: "Switch to dark theme" }),

@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
+import { getDictionary, type Dictionary } from "@/i18n/dictionary";
 import {
   Knob,
   LabelDark,
@@ -44,13 +45,24 @@ function subscribe(onChange: () => void) {
 /** On the server the theme is unknown: there is no document or storage. */
 const getServerTheme = () => null;
 
-function labelFor(theme: Theme | null) {
-  if (theme === null) return "Switch theme";
-  return theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+type ThemeLabels = Dictionary["theme"];
+
+function labelFor(theme: Theme | null, labels: ThemeLabels) {
+  if (theme === null) return labels.toggle;
+  return theme === "dark" ? labels.toLight : labels.toDark;
 }
 
-export function ThemeToggle({ className }: { className?: string }) {
-  const theme = useSyncExternalStore(subscribe, getCurrentTheme, getServerTheme);
+type ThemeToggleProps = {
+  labels: ThemeLabels;
+  className?: string;
+};
+
+export function ThemeToggle({ labels, className }: ThemeToggleProps) {
+  const theme = useSyncExternalStore(
+    subscribe,
+    getCurrentTheme,
+    getServerTheme,
+  );
 
   function toggle() {
     const next: Theme = getCurrentTheme() === "dark" ? "light" : "dark";
@@ -66,11 +78,11 @@ export function ThemeToggle({ className }: { className?: string }) {
     <Root
       type="button"
       className={className}
-      aria-label={labelFor(theme)}
+      aria-label={labelFor(theme, labels)}
       onClick={toggle}
     >
-      <LabelLight aria-hidden="true">LIGHT</LabelLight>
-      <LabelDark aria-hidden="true">DARK</LabelDark>
+      <LabelLight aria-hidden="true">{labels.light.toUpperCase()}</LabelLight>
+      <LabelDark aria-hidden="true">{labels.dark.toUpperCase()}</LabelDark>
       <Knob aria-hidden="true">
         <Pointer />
       </Knob>

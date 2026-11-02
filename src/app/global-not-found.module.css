@@ -1,0 +1,34 @@
+.main {
+  display: grid;
+  place-content: center;
+  gap: var(--space-6);
+  min-height: 100vh;
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-style: italic;
+  line-height: var(--leading-tight);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.links a {
+  color: var(--color-accent-text);
+}

@@ -11,12 +11,18 @@ const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   pt: () => import("./messages/pt.json").then((module) => module.default),
 };
 
-export async function getDictionary(): Promise<Dictionary> {
+/**
+ * The locale of the current request, from the [locale] segment. Works in any
+ * Server Component under src/app/[locale]/. Unknown locales become a 404.
+ */
+export async function getCurrentLocale(): Promise<Locale> {
   const locale = await getLocale();
-
   if (!isLocale(locale)) {
-    return notFound();
+    notFound();
   }
+  return locale;
+}
 
-  return dictionaries[locale]();
+export async function getDictionary(): Promise<Dictionary> {
+  return dictionaries[await getCurrentLocale()]();
 }
