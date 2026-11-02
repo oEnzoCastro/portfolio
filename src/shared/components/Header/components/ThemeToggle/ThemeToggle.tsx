@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
-import { getDictionary, type Dictionary } from "@/i18n/dictionary";
+import type { Dictionary } from "@/i18n/dictionary";
 import {
   Knob,
   LabelDark,

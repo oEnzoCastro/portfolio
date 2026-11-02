@@ -1,0 +1,12 @@
+/* The page column: content up to 1200px, centred, with side breathing room. */
+.shell {
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .shell {
+    padding-inline: var(--space-8);
+  }
+}

@@ -97,9 +97,10 @@ them.
 - **Sub-components live inside their parent** when only the parent uses them
   (`Header/components/ThemeToggle/`); shared ones sit at the top level
   (`TapeCounter/`, `Logo/`).
-- **Name what it is, not how it is placed.** A component exists when it is a
-  real piece of the interface. Layout-only wrappers (`<Box>`, `<Flex>`) stay
-  as CSS.
+- **Name what it is, not how it is placed.** A component (or styled piece)
+  exists when it is a real piece of the interface, including frames with a
+  clear role such as the page `Shell`. Generic wrappers with no role of their
+  own (`<Box>`, `<Flex>`) stay as CSS inside the piece that needs them.
 - **An optional `className` on every component**, so the caller can adjust
   position or spacing without changing the component.
 - **Tokens only.** Colours, spacing and type sizes come from

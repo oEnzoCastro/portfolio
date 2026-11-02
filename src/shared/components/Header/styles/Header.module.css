@@ -19,16 +19,6 @@
   gap: var(--space-8);
 }
 
-.navLink {
-  color: var(--color-text-muted);
-  text-decoration: none;
-}
-
-.navLink[aria-current="page"] {
-  color: var(--color-text);
-  font-weight: 500;
-}
-
 .actions {
   display: flex;
   align-items: center;

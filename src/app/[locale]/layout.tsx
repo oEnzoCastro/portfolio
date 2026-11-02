@@ -8,6 +8,8 @@ import { ThemeSync } from "@/shared/components/ThemeSync/ThemeSync";
 import { isLocale, LOCALES } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionary";
 import { notFound } from "next/navigation";
+import { Header } from "@/shared/components/Header/Header";
+import { Shell } from "./styles/Layout.styled";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await getDictionary();
@@ -33,17 +35,16 @@ export default async function RootLayout({
   }
 
   return (
-    <html
-      lang={locale}
-      className={fontVariables}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className={fontVariables} suppressHydrationWarning>
       <head>
         <InlineScript html={themeScript} />
       </head>
       <body>
         <ThemeSync />
-        {children}
+        <Shell>
+          <Header />
+          {children}
+        </Shell>
       </body>
     </html>
   );
