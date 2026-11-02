@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { act, cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { TapeCounter } from "@/shared/components/TapeCounter/TapeCounter";
 
@@ -8,6 +8,19 @@ function wheels(container: HTMLElement) {
   return [...container.firstElementChild!.children].map((wheel) =>
     [...wheel.firstElementChild!.children].map((cell) => cell.textContent),
   );
+}
+
+/**
+ * Fires the end of a CSS animation. jsdom has no AnimationEvent, so React
+ * listens for the prefixed "webkitAnimationEnd" there instead of
+ * "animationend". Dispatching both works in any environment.
+ */
+function endAnimation(element: Element) {
+  for (const type of ["animationend", "webkitAnimationEnd"]) {
+    act(() => {
+      element.dispatchEvent(new Event(type, { bubbles: true }));
+    });
+  }
 }
 
 describe("TapeCounter", () => {
@@ -53,7 +66,7 @@ describe("TapeCounter", () => {
     rerender(<TapeCounter value="PT" />);
 
     const strips = container.querySelectorAll("[data-rolling]");
-    fireEvent.animationEnd(strips[strips.length - 1]);
+    endAnimation(strips[strips.length - 1]);
 
     expect(wheels(container)).toEqual([["P"], ["T"]]);
     expect(container.querySelector("[data-rolling]")).toBeNull();
