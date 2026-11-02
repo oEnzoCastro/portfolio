@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import { TapeCounter } from "@/shared/components/TapeCounter/TapeCounter";
 
@@ -37,5 +37,25 @@ describe("TapeCounter", () => {
     const { container } = render(<TapeCounter value="EN" />);
 
     expect(container.firstElementChild!.getAttribute("aria-hidden")).toBe("true");
+  });
+
+  it("rolls on mount when it starts from another value", () => {
+    const { container } = render(<TapeCounter value="PT" from="EN" rounds={1} />);
+
+    expect(wheels(container)).toEqual([
+      ["E", ..."0123456789", "P"],
+      ["N", ..."0123456789", "T"],
+    ]);
+  });
+
+  it("stands still once the last wheel has landed", () => {
+    const { container, rerender } = render(<TapeCounter value="EN" />);
+    rerender(<TapeCounter value="PT" />);
+
+    const strips = container.querySelectorAll("[data-rolling]");
+    fireEvent.animationEnd(strips[strips.length - 1]);
+
+    expect(wheels(container)).toEqual([["P"], ["T"]]);
+    expect(container.querySelector("[data-rolling]")).toBeNull();
   });
 });

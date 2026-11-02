@@ -3,27 +3,40 @@ import { Cell, Strip, Wheel, Window } from "./styles/TapeCounter.styled";
 
 type TapeCounterProps = {
   value: string;
+  from?: string;
   rounds?: number;
+  onSettled?: () => void;
   className?: string;
 };
 
 const DIGITS = "0123456789";
 
 /**
- * A mechanical tape counter. When `value` changes, each wheel rolls through
- * `rounds` of digits and lands on the new character; each wheel starts and
- * stops a little later than the one before. Purely visual (aria-hidden):
- * the parent gives the accessible name.
+ * A mechanical tape counter. When `value` changes (or on mount, when `from`
+ * differs from `value`), each wheel rolls through `rounds` of digits and lands
+ * on the new character; each wheel starts and stops a little later than the
+ * one before. Purely visual (aria-hidden): the parent gives the accessible name.
  */
-export function TapeCounter({ value, rounds = 2, className }: TapeCounterProps) {
-
-  const [roll, setRoll] = useState({ from: value, to: value });
+export function TapeCounter({
+  value,
+  from = value,
+  rounds = 2,
+  onSettled,
+  className,
+}: TapeCounterProps) {
+  const [roll, setRoll] = useState({ from, to: value });
   if (roll.to !== value) {
     setRoll({ from: roll.to, to: value });
   }
 
   const rolling = roll.from !== roll.to;
   const filler = [...DIGITS.repeat(rounds)];
+  const lastIndex = roll.to.length - 1;
+
+  function settle() {
+    setRoll({ from: roll.to, to: roll.to });
+    onSettled?.();
+  }
 
   return (
     <Window className={className} aria-hidden="true">
@@ -42,6 +55,7 @@ export function TapeCounter({ value, rounds = 2, className }: TapeCounterProps) 
               key={`${roll.from}>${roll.to}`}
               data-rolling={rolling || undefined}
               style={style}
+              onAnimationEnd={index === lastIndex ? settle : undefined}
             >
               {cells.map((cell, cellIndex) => (
                 <Cell

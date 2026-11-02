@@ -4,6 +4,7 @@ import "@/styles/tokens.css";
 import "../globals.css";
 import { themeScript } from "@/lib/theme";
 import { InlineScript } from "@/shared/components/InlineScript/InlineScript";
+import { ThemeSync } from "@/shared/components/ThemeSync/ThemeSync";
 import { isLocale, LOCALES } from "@/i18n/config";
 import { notFound } from "next/navigation";
 
@@ -53,7 +54,10 @@ export default async function RootLayout({
       <head>
         <InlineScript html={themeScript} />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeSync />
+        {children}
+      </body>
     </html>
   );
 }
