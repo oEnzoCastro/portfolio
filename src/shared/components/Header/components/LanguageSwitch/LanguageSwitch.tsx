@@ -1,13 +1,12 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, type MouseEvent } from "react";
+import { localeFromPath, swapLocale, type Locale } from "@/i18n/config";
 import { TapeCounter } from "@/shared/components/TapeCounter/TapeCounter";
 import { Root } from "./styles/LanguageSwitch.styled";
 
-const LOCALES = ["en", "pt"] as const;
-type Locale = (typeof LOCALES)[number];
-
+/** Accessible name, written in the language you are switching to. */
 const SWITCH_LABEL: Record<Locale, string> = {
   en: "Switch to English",
   pt: "Mudar para português",
@@ -15,29 +14,21 @@ const SWITCH_LABEL: Record<Locale, string> = {
 
 const ROLL_MS = 1300;
 
-export function localeFromPath(pathname: string): Locale {
-  return pathname.split("/")[1] === "pt" ? "pt" : "en";
-}
-
-export function swapLocale(pathname: string, target: Locale): string {
-  const segments = pathname.split("/").filter(Boolean);
-  if ((LOCALES as readonly string[]).includes(segments[0])) {
-    segments.shift();
-  }
-  return "/" + [target, ...segments].join("/");
-}
-
+/**
+ * Switching locale swaps the root layout (src/app/[locale]/layout.tsx), and
+ * a client-side navigation would remount <html>: React removes attributes it
+ * does not own, such as data-theme, and the theme script does not run again.
+ * So the switch is a full page load: a plain link, or location.assign after
+ * the counter has rolled.
+ */
 export function LanguageSwitch() {
   const pathname = usePathname();
-  const router = useRouter();
   const current = localeFromPath(pathname);
   const target: Locale = current === "en" ? "pt" : "en";
   const href = swapLocale(pathname, target);
 
-  const [rolling, setRolling] = useState<{ from: Locale; to: Locale } | null>(
-    null,
-  );
-  const shown = rolling?.from === current ? rolling.to : current;
+  const [rolling, setRolling] = useState(false);
+  const shown = rolling ? target : current;
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     const newTab =
@@ -45,12 +36,12 @@ export function LanguageSwitch() {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (newTab || event.button !== 0 || reducedMotion) {
-      return;
+    if (newTab || event.button !== 0 || reducedMotion || rolling) {
+      return; // Plain link behaviour.
     }
     event.preventDefault();
-    setRolling({ from: current, to: target });
-    window.setTimeout(() => router.push(href), ROLL_MS);
+    setRolling(true);
+    window.setTimeout(() => window.location.assign(href), ROLL_MS);
   }
 
   return (

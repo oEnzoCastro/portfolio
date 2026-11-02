@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
 import "@/styles/tokens.css";
-import "./globals.css";
+import "../globals.css";
 import { themeScript } from "@/lib/theme";
+import { InlineScript } from "@/shared/components/InlineScript/InlineScript";
+import { isLocale, LOCALES } from "@/i18n/config";
+import { notFound } from "next/navigation";
 
 const display = Bodoni_Moda({
   variable: "--font-display",
@@ -27,15 +30,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://enzocastro.dev"),
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[locale]">) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    return notFound();
+  }
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${display.variable} ${body.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <InlineScript html={themeScript} />
       </head>
       <body>{children}</body>
     </html>

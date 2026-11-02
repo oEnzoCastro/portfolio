@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Enzo Castro",
+    "description": "Desenvolvedor fullstack em web, mobile e backend."
+  },
+  "nav": {
+    "label": "Principal",
+    "home": "Enzo Castro, início",
+    "work": "Trabalhos",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "contact": "Contato"
+  }
+}

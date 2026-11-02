@@ -68,7 +68,7 @@ As a visitor, I want to read the site in English or Portuguese.
 - [ ] Every page lives under a locale segment: `/en/...` and `/pt/...`. English is the default.
 - [ ] Given I open `/` without a locale, when my browser prefers Portuguese, then I am redirected to `/pt`; otherwise to `/en`.
 - [ ] Given an unknown locale such as `/fr`, then I see the 404 page.
-- [ ] Short UI text comes from dictionaries (`messages/en.json`, `messages/pt.json`); no hard-coded copy in components.
+- [ ] Short UI text comes from dictionaries (`src/i18n/messages/en.json`, `pt.json`), loaded only on the server; no hard-coded copy in components.
 - [ ] A unit test fails if a key exists in one dictionary but not in the other.
 - [ ] Long content (cases) lives in MDX files per locale.
 - [ ] The language switch keeps me on the same page in the other language.
