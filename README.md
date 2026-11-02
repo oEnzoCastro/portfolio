@@ -77,9 +77,26 @@ them.
 ## Conventions
 
 - **Components own their styles.** Each component lives in its own folder
-  with its CSS Module (`src/components/Hero/Hero.tsx` + `Hero.module.css`).
-  Pages compose named components (`<Hero>`, `<Header>`) instead of passing
-  class names to raw elements.
+  under `src/shared/components/`, with its styles in a `styles/` subfolder:
+
+  ```
+  ThemeToggle/
+    ThemeToggle.tsx            logic and structure, no class names
+    ThemeToggle.test.tsx
+    styles/
+      ThemeToggle.module.css   the CSS
+      ThemeToggle.styled.tsx   named pieces: Root, Knob, Pointer…
+  ```
+
+  `*.styled.tsx` uses the `styled()` helper (`src/lib/styled.tsx`) to turn
+  each CSS class into a named component, so the `.tsx` reads as structure
+  (`<S.Nav>`, `<Knob>`) instead of `className` strings.
+- **State reaches CSS through `data-*` attributes**, not by joining class
+  names: `<Strip data-rolling>` in the component, `.strip[data-rolling]` in
+  the CSS.
+- **Sub-components live inside their parent** when only the parent uses them
+  (`Header/components/ThemeToggle/`); shared ones sit at the top level
+  (`TapeCounter/`, `Logo/`).
 - **Name what it is, not how it is placed.** A component exists when it is a
   real piece of the interface. Layout-only wrappers (`<Box>`, `<Flex>`) stay
   as CSS.
@@ -87,8 +104,9 @@ them.
   position or spacing without changing the component.
 - **Tokens only.** Colours, spacing and type sizes come from
   `src/styles/tokens.css`; a test fails on hex colours in CSS Modules.
-- **No CSS-in-JS.** Styles are static CSS Modules, so components can stay
-  server components and ship no JavaScript.
+- **No CSS-in-JS.** Styles are static CSS Modules; `styled()` only attaches
+  class names, so components can stay server components and ship no
+  JavaScript for styling.
 
 ## Roadmap
 

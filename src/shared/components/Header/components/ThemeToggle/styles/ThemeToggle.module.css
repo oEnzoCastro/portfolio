@@ -1,4 +1,4 @@
-.toggle {
+.root {
   position: relative;
   width: 4.75rem;
   height: 3.25rem;
@@ -53,12 +53,12 @@
   transition: transform 300ms cubic-bezier(0.3, 1.4, 0.5, 1);
 }
 
-/* Claro (padrão): LIGHT aceso */
+/* Light (default): LIGHT is lit. */
 .labelLight {
   color: var(--color-accent-text);
 }
 
-/* Escuro escolhido pelo usuário */
+/* Dark, chosen by the user. */
 :global(:root[data-theme="dark"]) .pointer {
   transform: rotate(45deg);
 }
@@ -69,7 +69,7 @@
   color: var(--color-accent-text);
 }
 
-/* Escuro pelo sistema, sem escolha do usuário */
+/* Dark from the system, with no saved choice. */
 @media (prefers-color-scheme: dark) {
   :global(:root:not([data-theme="light"])) .pointer {
     transform: rotate(45deg);

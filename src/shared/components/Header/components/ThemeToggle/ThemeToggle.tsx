@@ -2,7 +2,13 @@
 
 import { useSyncExternalStore } from "react";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
-import styles from "./ThemeToggle.module.css";
+import {
+  Knob,
+  LabelDark,
+  LabelLight,
+  Pointer,
+  Root,
+} from "./styles/ThemeToggle.styled";
 
 type Theme = "light" | "dark";
 
@@ -57,21 +63,17 @@ export function ThemeToggle({ className }: { className?: string }) {
   }
 
   return (
-    <button
+    <Root
       type="button"
-      className={[styles.toggle, className].filter(Boolean).join(" ")}
+      className={className}
       aria-label={labelFor(theme)}
       onClick={toggle}
     >
-      <span className={styles.labelLight} aria-hidden="true">
-        LIGHT
-      </span>
-      <span className={styles.labelDark} aria-hidden="true">
-        DARK
-      </span>
-      <span className={styles.knob} aria-hidden="true">
-        <span className={styles.pointer} />
-      </span>
-    </button>
+      <LabelLight aria-hidden="true">LIGHT</LabelLight>
+      <LabelDark aria-hidden="true">DARK</LabelDark>
+      <Knob aria-hidden="true">
+        <Pointer />
+      </Knob>
+    </Root>
   );
 }

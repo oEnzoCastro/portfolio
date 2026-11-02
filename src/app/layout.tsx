@@ -24,6 +24,7 @@ const mono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Enzo Castro",
   description: "Fullstack developer across web, mobile and backend.",
+  metadataBase: new URL("https://enzocastro.dev"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
