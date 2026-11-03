@@ -9,7 +9,9 @@ import { isLocale, LOCALES } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionary";
 import { notFound } from "next/navigation";
 import { Header } from "@/shared/components/Header/Header";
-import { Shell } from "./styles/Layout.styled";
+import { SkipLink, CONTENT_ID } from "@/shared/components/SkipLink/SkipLink";
+import { Footer } from "@/shared/components/Footer/Footer";
+import { Main, Shell } from "./styles/Layout.styled";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await getDictionary();
@@ -42,8 +44,12 @@ export default async function RootLayout({
       <body>
         <ThemeSync />
         <Shell>
+          <SkipLink />
           <Header />
-          {children}
+          <Main id={CONTENT_ID} tabIndex={-1}>
+            {children}
+          </Main>
+          <Footer />
         </Shell>
       </body>
     </html>

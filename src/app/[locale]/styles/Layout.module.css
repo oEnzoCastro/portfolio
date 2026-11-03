@@ -10,3 +10,8 @@
     padding-inline: var(--space-8);
   }
 }
+
+/* The page content. tabIndex={-1} lets the skip link move focus here. */
+.main:focus {
+  outline: none;
+}

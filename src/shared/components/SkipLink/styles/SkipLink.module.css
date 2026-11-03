@@ -1,0 +1,19 @@
+/* Hidden until it gets keyboard focus; then it shows over the header. */
+.root {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 2px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.root:focus-visible {
+  transform: none;
+}

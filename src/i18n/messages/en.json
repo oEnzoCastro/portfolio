@@ -21,5 +21,16 @@
   "notFound": {
     "title": "Page not found",
     "home": "Return to the home page"
+  },
+  "layout": {
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "label": "Contact links",
+    "copyright": "© {year} Enzo Castro Figueredo",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "external": "(opens another site)"
   }
 }
