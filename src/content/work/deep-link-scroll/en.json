@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "slug": "deep-link-scroll",
+    "order": 2,
+    "title": "Deep-link scrolling in a legacy React Native app",
+    "areas": [
+      "mobile"
+    ],
+    "stack": [
+      "React Native",
+      "TypeScript",
+      "Jest"
+    ],
+    "featured": true,
+    "highlight": {
+      "type": "metric",
+      "value": "1 hook",
+      "caption": "Deep links to any section of a screen"
+    },
+    "role": "Software Developer Intern, dti digital",
+    "period": "2026",
+    "draft": false
+  },
+  "sections": [
+    {
+      "id": "the-problem",
+      "title": "The problem",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "New deep links had to land users on specific sections inside complex legacy screens. Unlike the web, React Native has no “scroll to this element by id”."
+        }
+      ]
+    },
+    {
+      "id": "what-i-built",
+      "title": "What I built",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An invisible **anchor** component that marks a target area (no style, no layout, just a reference), plus a **hook** that scrolls the parent ScrollView to it. Using it meant wrapping the target and calling one function."
+        }
+      ]
+    },
+    {
+      "id": "the-hard-part",
+      "title": "The hard part",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Timing. When a deep link opened a screen, the target was often not where it would end up:"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "it could still be rendering;",
+            "a collapsible around it could be closed;",
+            "a tab switch could be pending;",
+            "animations moved positions mid-scroll."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The solution only scrolls once the target is rendered and measured, and it adds an offset for headers that appear while scrolling."
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "title": "Quality",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Unit tests per layer:"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "label": "Component",
+              "text": "Accepts every way it can be placed."
+            },
+            {
+              "label": "Hook",
+              "text": "Its logic and the calls it makes."
+            },
+            {
+              "label": "Usage",
+              "text": "Each screen that uses it."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Visual checks and QA covered the rest."
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Adopted across several screens, including tab switches and a collapsible. I also validated it inside a SectionList, so future list cases wouldn’t need a rewrite."
+        },
+        {
+          "type": "paragraph",
+          "text": "Making it generic was the team’s suggestion; I implemented it and solved the hard parts."
+        }
+      ]
+    },
+    {
+      "id": "what-id-do-differently",
+      "title": "What I’d do differently",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Screens with deep prop drilling forced an extra anchor to reach the parent ScrollView. I’d look for a more native way to resolve that reference instead of wrapping a View, and check existing libraries before building."
+        }
+      ]
+    }
+  ]
+}

@@ -24,6 +24,8 @@
   padding: var(--space-8);
   border-bottom: 1px solid var(--color-border-strong);
   transition: background 200ms;
+  /* The metric sizes itself to this box (cqi units below). */
+  container-type: inline-size;
 }
 
 .root:hover .visual,
@@ -31,16 +33,23 @@
   background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
 
+/*
+ * As large as the box allows: `--chars` (set by the component) is the
+ * number of characters, and a Bodoni italic character is about 0.62em wide.
+ * Long metrics such as "EN ⇄ PT" shrink instead of overflowing.
+ */
 .metric {
+  --max: 4rem;
   font-family: var(--font-display);
-  font-size: 4rem;
+  font-size: min(var(--max), calc(100cqi / (var(--chars, 4) * 0.62)));
   font-style: italic;
   line-height: 1;
+  white-space: nowrap;
   color: var(--color-accent-text);
 }
 
 .root[data-size="large"] .metric {
-  font-size: clamp(4.5rem, 12vw, 11rem);
+  --max: 11rem;
 }
 
 .caption {

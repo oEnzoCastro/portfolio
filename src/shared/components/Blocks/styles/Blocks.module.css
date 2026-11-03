@@ -1,0 +1,54 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-6);
+}
+
+.link {
+  color: var(--color-accent-text);
+  text-underline-offset: 0.2em;
+}
+
+/* Steps side by side (e.g. Red / Green / Refactor), stacked on phones. */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  margin-block: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.step + .step {
+  border-left: 1px solid var(--color-border-strong);
+}
+
+.stepLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+@media (max-width: 47.99rem) {
+  .step + .step {
+    border-top: 1px solid var(--color-border-strong);
+    border-left: 0;
+  }
+}

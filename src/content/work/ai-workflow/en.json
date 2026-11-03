@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "slug": "ai-workflow",
+    "order": 1,
+    "title": "Rebuilding an AI development workflow",
+    "areas": [
+      "backend",
+      "ai"
+    ],
+    "stack": [
+      "AI agents",
+      "TDD",
+      ".NET"
+    ],
+    "featured": true,
+    "highlight": {
+      "type": "metric",
+      "value": "−60%",
+      "caption": "Agent instructions · tests first"
+    },
+    "role": "Software Developer Intern, dti digital",
+    "period": "2026",
+    "draft": false
+  },
+  "sections": [
+    {
+      "id": "the-problem",
+      "title": "The problem",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A spec-driven AI workflow had grown into around 500 lines of rules, hardcoded logic and no test discipline. The core flow was small; everything around it got in the way."
+        }
+      ]
+    },
+    {
+      "id": "where-it-started",
+      "title": "Where it started",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "On a previous team, I built quality gates (pre-commit, pre-push) and a “grill” step that checked each spec against the current codebase before implementation. Without knowing why a ticket had been blocked, it flagged the same missing backend data the team had found."
+        }
+      ]
+    },
+    {
+      "id": "what-i-did",
+      "title": "What I did",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "I audited the workflow against two reference implementations, removed what wasn’t pulling its weight, and introduced red/green/refactor:"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "label": "Red",
+              "text": "Acceptance criteria become behaviours and failing tests."
+            },
+            {
+              "label": "Green",
+              "text": "The smallest code that makes them pass."
+            },
+            {
+              "label": "Refactor",
+              "text": "Clean it up with the tests as a safety net."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "what-id-do-differently",
+      "title": "What I’d do differently",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Split it into smaller pull requests and share a short proposal first. Next step: enforce TDD with a gate instead of an instruction."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+import Link from "next/link";
+import { styled } from "@/lib/styled";
+import styles from "./CasePage.module.css";
+
+export const Top = styled("header", styles.top, "CasePage.Top");
+export const Back = styled(Link, styles.back, "CasePage.Back");
+export const Intro = styled("div", styles.intro, "CasePage.Intro");
+export const Highlight = styled("div", styles.highlight, "CasePage.Highlight");
+export const Metric = styled("span", styles.metric, "CasePage.Metric");
+export const Caption = styled("span", styles.caption, "CasePage.Caption");
+export const Picture = styled("span", styles.picture, "CasePage.Picture");
+export const Heading = styled("div", styles.heading, "CasePage.Heading");
+export const Label = styled("p", styles.label, "CasePage.Label");
+export const Title = styled("h1", styles.title, "CasePage.Title");
+export const Note = styled("p", styles.note, "CasePage.Note");
+export const Facts = styled("dl", styles.facts, "CasePage.Facts");
+export const FactName = styled("dt", styles.factName, "CasePage.FactName");
+export const FactValue = styled("dd", styles.factValue, "CasePage.FactValue");
+export const Next = styled(Link, styles.next, "CasePage.Next");
+export const NextText = styled("span", styles.nextText, "CasePage.NextText");
+export const NextLabel = styled("span", styles.nextLabel, "CasePage.NextLabel");
+export const NextTitle = styled("span", styles.nextTitle, "CasePage.NextTitle");
+export const NextArrow = styled("span", styles.nextArrow, "CasePage.NextArrow");

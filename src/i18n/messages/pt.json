@@ -55,5 +55,29 @@
     },
     "selectedWork": "Trabalhos selecionados",
     "seeAllWork": "Ver todos os trabalhos"
+  },
+  "caseStudy": {
+    "label": "Case",
+    "allWork": "Todos os trabalhos",
+    "role": "Função",
+    "period": "Período",
+    "stack": "Stack",
+    "onThisPage": "Nesta página",
+    "next": "Próximo case",
+    "notTranslated": "Este case ainda não foi traduzido para o português, por isso aparece em inglês."
+  },
+  "work": {
+    "title": "Trabalhos",
+    "intro": "Cases de trabalhos em mobile, web e backend.",
+    "filterLabel": "Filtrar por área",
+    "all": "Todos",
+    "areas": {
+      "mobile": "Mobile",
+      "web": "Web",
+      "backend": "Backend",
+      "ai": "IA"
+    },
+    "countOne": "1 item",
+    "countOther": "{count} itens"
   }
 }

@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "slug": "making-of-this-site",
+    "order": 3,
+    "title": "Making of this site",
+    "areas": [
+      "web"
+    ],
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Vitest"
+    ],
+    "featured": true,
+    "highlight": {
+      "type": "metric",
+      "value": "EN ⇄ PT",
+      "caption": "Brand, type and the decisions behind them"
+    },
+    "role": "Design and development",
+    "period": "2026",
+    "draft": true
+  },
+  "sections": [
+    {
+      "id": "the-brief",
+      "title": "The brief",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A portfolio an interviewer closes thinking “this person knows what they’re doing”. The site itself is the main project: the brand, the code and the decisions are all on show."
+        }
+      ]
+    },
+    {
+      "id": "the-brand",
+      "title": "The brand",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The concept started as a play button and became a vinyl sleeve: music is where my path began. At first glance it is a record sliding out of its sleeve; at second glance the sleeve’s cuts form an **E** and the cut-out forms a **C**."
+        },
+        {
+          "type": "paragraph",
+          "text": "The name is set in Bodoni Moda, using only its true italic (no browser-made slant). The accent moved from orange to a vinyl red, to keep the brand its own."
+        }
+      ]
+    },
+    {
+      "id": "two-languages",
+      "title": "Two languages without a library",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "English and Portuguese live in the URL (/en, /pt), so every page is static and indexable in both. A small proxy sends a visitor to their language from the browser’s preferences, with the quality order handled and tested."
+        },
+        {
+          "type": "paragraph",
+          "text": "Switching language swaps the root layout, which surfaced two lessons:"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "React removes attributes it does not own when it remounts <html>, so the saved theme is re-applied before paint;",
+            "Next.js keeps visited pages alive but hidden, state included, so transient UI state is reset when a page is hidden."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "content-as-data",
+      "title": "Content as data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Case studies are JSON files with typed blocks (paragraph, list, steps), checked when the site builds. Components decide how each block looks, so writing a case study never touches the code."
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "title": "Quality",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Strict TypeScript, unit tests, lint and type checks on every commit and push, and CI on every change. Contrast is checked by a test in both themes, and every animation respects reduced motion."
+        }
+      ]
+    }
+  ]
+}

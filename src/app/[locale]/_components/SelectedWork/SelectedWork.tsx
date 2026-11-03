@@ -16,7 +16,7 @@ export const WORK_SECTION_ID = "work";
 export async function SelectedWork() {
   const locale = await getCurrentLocale();
   const { home } = await getDictionary();
-  const featured = await getFeaturedWork(locale);
+  const featured = getFeaturedWork(locale);
 
   if (featured.length === 0) return null;
 

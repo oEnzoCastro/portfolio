@@ -55,5 +55,29 @@
     },
     "selectedWork": "Selected work",
     "seeAllWork": "See all work"
+  },
+  "caseStudy": {
+    "label": "Case study",
+    "allWork": "All work",
+    "role": "Role",
+    "period": "Period",
+    "stack": "Stack",
+    "onThisPage": "On this page",
+    "next": "Next case study",
+    "notTranslated": "This case study is not translated into Portuguese yet, so it is shown in English."
+  },
+  "work": {
+    "title": "Work",
+    "intro": "Case studies from mobile, web and backend work.",
+    "filterLabel": "Filter by area",
+    "all": "All",
+    "areas": {
+      "mobile": "Mobile",
+      "web": "Web",
+      "backend": "Backend",
+      "ai": "AI"
+    },
+    "countOne": "1 item",
+    "countOther": "{count} items"
   }
 }

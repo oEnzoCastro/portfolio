@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "slug": "ai-workflow",
+    "order": 1,
+    "title": "Reconstruindo um fluxo de desenvolvimento com IA",
+    "areas": [
+      "backend",
+      "ai"
+    ],
+    "stack": [
+      "Agentes de IA",
+      "TDD",
+      ".NET"
+    ],
+    "featured": true,
+    "highlight": {
+      "type": "metric",
+      "value": "−60%",
+      "caption": "Instruções do agente · testes primeiro"
+    },
+    "role": "Estagiário de Desenvolvimento de Software, dti digital",
+    "period": "2026",
+    "draft": false
+  },
+  "sections": [
+    {
+      "id": "o-problema",
+      "title": "O problema",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Um fluxo de IA guiado por especificações tinha crescido para cerca de 500 linhas de regras, lógica fixa no código e nenhuma disciplina de testes. O fluxo principal era pequeno; todo o resto atrapalhava."
+        }
+      ]
+    },
+    {
+      "id": "onde-comecou",
+      "title": "Onde começou",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Num time anterior, criei verificações de qualidade (pre-commit, pre-push) e uma etapa de “sabatina” que conferia cada especificação contra o código atual antes da implementação. Sem saber por que um ticket tinha sido bloqueado, ela apontou a mesma falta de dados do backend que o time tinha encontrado."
+        }
+      ]
+    },
+    {
+      "id": "o-que-eu-fiz",
+      "title": "O que eu fiz",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Comparei o fluxo com duas implementações de referência, tirei o que não se pagava e introduzi o ciclo red/green/refactor:"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "label": "Red",
+              "text": "Critérios de aceite viram comportamentos e testes que falham."
+            },
+            {
+              "label": "Green",
+              "text": "O menor código que faz os testes passarem."
+            },
+            {
+              "label": "Refactor",
+              "text": "Limpar o código com os testes como rede de segurança."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o-que-eu-faria-diferente",
+      "title": "O que eu faria diferente",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dividir em pull requests menores e apresentar uma proposta curta antes. Próximo passo: garantir o TDD com uma verificação automática, e não só com uma instrução."
+        }
+      ]
+    }
+  ]
+}

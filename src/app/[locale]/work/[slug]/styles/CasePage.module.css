@@ -1,0 +1,146 @@
+/* WORK-03, layout "Case B": highlight and title on top, facts on the side. */
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-block: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.back {
+  /* Always above the big metric below, so it stays clickable even where
+     the italic glyphs reach outside their box. */
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* The highlight on its own row, then the label and the title. */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  /* The metric sizes itself to this width (cqi units below). */
+  container-type: inline-size;
+  /* Clicks pass through the decorative metric to whatever is under it. */
+  pointer-events: none;
+}
+
+/* As large as the row allows, up to 11.5rem (see WorkCard.module.css). */
+.metric {
+  font-family: var(--font-display);
+  font-size: min(11.5rem, calc(100cqi / (var(--chars, 4) * 0.62)));
+  font-style: italic;
+  line-height: 0.95;
+  white-space: nowrap;
+  color: var(--color-accent-text);
+}
+
+.caption,
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.picture {
+  width: 100%;
+  max-width: 24rem;
+  aspect-ratio: 16 / 10;
+  background: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 50rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.6vw, 4rem);
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.note {
+  padding: var(--space-3) var(--space-4);
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.factName {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.factValue {
+  margin-top: var(--space-1);
+}
+
+.next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-16);
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+}
+
+.nextText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.nextLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.nextTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.nextArrow {
+  font-size: 2rem;
+  color: var(--color-accent-text);
+}

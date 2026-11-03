@@ -28,7 +28,9 @@ function Highlight({ highlight }: { highlight: HighlightData }) {
   if (highlight.type === "metric") {
     return (
       <>
-        <Metric>{highlight.value}</Metric>
+        <Metric style={{ "--chars": [...highlight.value].length } as CSSProperties}>
+          {highlight.value}
+        </Metric>
         <Caption>{highlight.caption}</Caption>
       </>
     );
@@ -48,6 +50,9 @@ export function WorkCard({ work, href, size = "small" }: WorkCardProps) {
   return (
     <Root
       href={href}
+      // Loads the case (including its URL data) ahead of the click, so the
+      // navigation is instant (see src/app/[locale]/work/[slug]/page.tsx).
+      prefetch
       data-size={size}
       // Not translated yet: the card shows English inside a Portuguese page.
       lang={work.isFallback ? work.locale : undefined}

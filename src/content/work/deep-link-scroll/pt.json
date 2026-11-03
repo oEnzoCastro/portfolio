@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "slug": "deep-link-scroll",
+    "order": 2,
+    "title": "Rolagem por deep link num app React Native legado",
+    "areas": [
+      "mobile"
+    ],
+    "stack": [
+      "React Native",
+      "TypeScript",
+      "Jest"
+    ],
+    "featured": true,
+    "highlight": {
+      "type": "metric",
+      "value": "1 hook",
+      "caption": "Deep links para qualquer seção da tela"
+    },
+    "role": "Estagiário de Desenvolvimento de Software, dti digital",
+    "period": "2026",
+    "draft": false
+  },
+  "sections": [
+    {
+      "id": "o-problema",
+      "title": "O problema",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Novos deep links precisavam levar o usuário a seções específicas dentro de telas legadas complexas. Diferente da web, o React Native não tem “rolar até este elemento pelo id”."
+        }
+      ]
+    },
+    {
+      "id": "o-que-eu-construi",
+      "title": "O que eu construí",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Um componente **âncora** invisível que marca a área de destino (sem estilo, sem layout, só uma referência), mais um **hook** que rola a ScrollView pai até ele. Para usar, bastava envolver o destino e chamar uma função."
+        }
+      ]
+    },
+    {
+      "id": "a-parte-dificil",
+      "title": "A parte difícil",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "O momento certo. Quando um deep link abria a tela, o destino muitas vezes ainda não estava onde ia ficar:"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "ele podia ainda estar renderizando;",
+            "um bloco recolhível em volta podia estar fechado;",
+            "uma troca de aba podia estar pendente;",
+            "animações mudavam as posições no meio da rolagem."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A solução só rola depois que o destino está renderizado e medido, e soma um deslocamento para cabeçalhos que aparecem durante a rolagem."
+        }
+      ]
+    },
+    {
+      "id": "qualidade",
+      "title": "Qualidade",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Testes unitários por camada:"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "label": "Componente",
+              "text": "Aceita todas as formas de ser colocado."
+            },
+            {
+              "label": "Hook",
+              "text": "A lógica e as chamadas que ele faz."
+            },
+            {
+              "label": "Uso",
+              "text": "Cada tela que o utiliza."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Verificações visuais e o QA cobriram o resto."
+        }
+      ]
+    },
+    {
+      "id": "resultado",
+      "title": "Resultado",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Adotado em várias telas, incluindo trocas de aba e um bloco recolhível. Também validei dentro de uma SectionList, para casos futuros com listas não precisarem de reescrita."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fazer a solução genérica foi sugestão do time; eu implementei e resolvi as partes difíceis."
+        }
+      ]
+    },
+    {
+      "id": "o-que-eu-faria-diferente",
+      "title": "O que eu faria diferente",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Telas com muitos níveis de props exigiram uma âncora extra para alcançar a ScrollView pai. Eu buscaria um jeito mais nativo de resolver essa referência em vez de envolver uma View, e olharia as bibliotecas existentes antes de construir."
+        }
+      ]
+    }
+  ]
+}
