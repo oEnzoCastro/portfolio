@@ -17,5 +17,9 @@
     "toggle": "Mudar o tema",
     "light": "Claro",
     "dark": "Escuro"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "home": "Voltar para a página inicial"
   }
 }
