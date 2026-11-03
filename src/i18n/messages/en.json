@@ -32,5 +32,28 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "external": "(opens another site)"
+  },
+  "home": {
+    "tagline": "Building fast, without cutting corners.",
+    "role": "Fullstack developer across web, mobile and backend.",
+    "seeWork": "See the work",
+    "downloadCv": "Download CV",
+    "offerTitle": "What I do",
+    "offer": {
+      "mobile": {
+        "name": "Mobile",
+        "text": "React Native apps for US clients, shipped with tests."
+      },
+      "web": {
+        "name": "Web",
+        "text": "Fast, accessible sites and apps with Next.js."
+      },
+      "backend": {
+        "name": "Backend",
+        "text": ".NET and NestJS APIs that serve web, iOS and Android."
+      }
+    },
+    "selectedWork": "Selected work",
+    "seeAllWork": "See all work"
   }
 }

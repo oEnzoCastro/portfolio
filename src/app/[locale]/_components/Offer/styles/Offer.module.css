@@ -1,0 +1,47 @@
+/* HOME-03: Mobile, Web, Backend in a row. */
+.root {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8);
+  padding-block: var(--space-8) var(--space-16);
+  border-top: 1px solid var(--color-border);
+}
+
+.item {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.initial {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-style: italic;
+  line-height: 1;
+  color: var(--color-accent-text);
+}
+
+.name {
+  font-weight: 500;
+}
+
+.text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Read by screen readers, not shown. */
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 47.99rem) {
+  .root {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}

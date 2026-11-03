@@ -19,7 +19,7 @@ As an interviewer, I want to see every piece of work in one place and narrow it 
 Priority: v1
 As the author, I want to add a piece of work by adding one file.
 
-- [ ] Each item is one MDX file per locale with front matter: `slug`, `order`, `title`, `areas` (mobile | web | backend | ai), `stack` (max 3 shown on cards), `featured`, `highlight`, `role`, `period`, `draft`.
+- [ ] Each item is a folder `src/content/work/<slug>/` with one TSX file per locale (`en.tsx`, `pt.tsx`). Each file exports `meta` (`satisfies WorkMeta`): `slug`, `order`, `title`, `areas` (mobile | web | backend | ai), `stack` (max 3 shown on cards), `featured`, `highlight`, `role`, `period`, `draft`; and a default component with the case study text.
 - [ ] `highlight` is either `{ type: "metric", value, caption }`, rendered as text (translatable, accessible, follows the theme), or `{ type: "image", src, alt }`.
 - [ ] Highlight images are SVG drawn with `currentColor`, so one file works in both themes; raster images only for real screenshots. Fixed 16:10 box, so nothing shifts while loading.
 - [ ] Given a file is missing a required field, then the build fails with a message naming the file and the field.

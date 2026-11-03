@@ -32,5 +32,28 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "external": "(abre outro site)"
+  },
+  "home": {
+    "tagline": "Construindo rápido, sem pular etapas.",
+    "role": "Desenvolvedor fullstack em web, mobile e backend.",
+    "seeWork": "Ver os trabalhos",
+    "downloadCv": "Baixar CV",
+    "offerTitle": "O que eu faço",
+    "offer": {
+      "mobile": {
+        "name": "Mobile",
+        "text": "Apps em React Native para clientes dos EUA, entregues com testes."
+      },
+      "web": {
+        "name": "Web",
+        "text": "Sites e apps rápidos e acessíveis com Next.js."
+      },
+      "backend": {
+        "name": "Backend",
+        "text": "APIs em .NET e NestJS que atendem web, iOS e Android."
+      }
+    },
+    "selectedWork": "Trabalhos selecionados",
+    "seeAllWork": "Ver todos os trabalhos"
   }
 }

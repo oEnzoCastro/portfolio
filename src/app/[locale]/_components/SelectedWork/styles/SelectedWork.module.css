@@ -1,0 +1,58 @@
+/* HOME-04: the first card is large; the others stack on its right. */
+.root {
+  padding-bottom: var(--space-16);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.seeAll {
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(18rem, auto);
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.grid > :first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* A single featured case takes the whole row. */
+.grid > :only-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 47.99rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid > :first-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
